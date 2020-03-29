@@ -1,4 +1,39 @@
 <% provide(:title, "Contact") %>
 
-<h1>Main#contact</h1>
-<p>Find me in app/views/main/contact.html.erb</p>
+
+<div class="container">
+    <div class="row">
+        <h2 class="h1 m-0">Contact us</h2>        
+        <p class="pb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
+        <div class="row">
+            <div class="col">                
+                <form class="needs-validation">
+                    <div class="form-group">
+                        <label for="firstName">First name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="First Name" value="" required="">
+                        
+                        <div class="invalid-feedback">
+                            Valid first name is required.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" value="" required="" aria-describedby="emailHelp">
+                        <div class="invalid-feedback">
+                            Valid last name is required.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="my@example.com" required="" aria-describedby="emailMessage">
+                        <small id="emailMessage" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Send</button>                  
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
