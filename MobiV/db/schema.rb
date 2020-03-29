@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_03_28_195845) do
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
     t.decimal "price", precision: 5, scale: 2, null: false
