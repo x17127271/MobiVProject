@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   def home
+    @products = Product.all
   end
 
   def contact
