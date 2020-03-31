@@ -36,24 +36,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col text-center">
-                    <img src="" class="img-fluid" alt="This is an image">
-                    <h3 class="display-5">Scooter A</h3>
-                    <p class="lead">description scooter</p>
-                     <button type="button" class="btn btn-dark">Button</button>
-                </div>
-                <div class="col text-center">
-                    <img src="" class="img-fluid" alt="This is an image">
-                     <h3 class="display-5">Scooter B</h3>
-                    <p class="lead">description scooter</p>
-                     <button type="button" class="btn btn-dark">Button</button>
-                </div>
-                <div class="col text-center">
-                    <img src="" class="img-fluid" alt="This is an image">
-                     <h3 class="display-5">Scooter C</h3>
-                    <p class="lead">description scooter</p>
-                     <button type="button" class="btn btn-dark">Button</button>
-                </div>
+                <% @products.each do |product| %>
+                    <div class="col">
+                        <div class="card text-center h-100" style="width: 18rem;">
+                            <%# <img src="..." class="card-img-top" alt="Image Scooter"> %>
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" 
+                            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                            </svg>    
+                                <div class="card-body">
+                                <h5 class="card-title"><%= product.title %></h5>
+                                <p class="card-text limit-text-home text-left"><%= product.description %></p>
+                                <%= link_to 'Show', product, class: 'btn btn-dark' %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
