@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  devise_for :admins
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'cart/index'
 
   devise_for :users
@@ -13,6 +14,7 @@ get '/cart/clear', to: 'cart#clearCart'
   get '/cart/:id', to: 'cart#add'
   get '/cart/remove/:id' => 'cart#remove'
   get '/cart/decrease/:id' => 'cart#decrease'
+  get '/cart/increase/:id' => 'cart#increase'
 
   root :to => "main#home"
   resources :products
