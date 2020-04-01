@@ -1,6 +1,7 @@
 class MainController < ApplicationController
   def home
-    @products = Product.all
+    @products = Product.where(category: 'Scooters')
+    @accessories = Product.where(category: 'Accessories')
   end
 
   def contact

@@ -14,11 +14,7 @@
   </div>
   <div class="row mt-3">
     <div class="col">
-      <svg class="bd-placeholder-img card-img-top" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" 
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect>
-      </svg>
+       <%= link_to (image_tag @product.image_url, :class => "card-img"), @product %>
     </div>    
     <div class="col col-lg-4">
       <h2><%= @product.title %></h2>
@@ -26,9 +22,9 @@
       <% if user_signed_in? %> 
         <a href="/cart/<%= @product.id %>" class="btn btn-dark">Add To Cart</a>
       <% end %>
-      <% if session[:login] == 1 %>
+      <%# if session[:login] == 1 %>
         <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-dark mt-3' %>
-      <% end %>
+      <%# end %>
     </div>
   </div>
   <div class="row">
