@@ -13,12 +13,7 @@
         <div class="card mb-3">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <%# <img src="..." class="card-img" alt="..."> %>
-               <svg class="bd-placeholder-img card-img-top" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" 
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect>
-               </svg>
+              <%= link_to (image_tag product.image_url, :class => "card-img"), product %>               
             </div>
             <div class="col-md-8">
               <div class="card-body">
