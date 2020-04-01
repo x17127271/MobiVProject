@@ -47,7 +47,7 @@ before_action :authenticate_user!
     cart = session[:cart]
     cart.delete id
     
-    redirect_to :root
+    redirect_to :cart
   end
 
   def decrease
@@ -62,8 +62,16 @@ before_action :authenticate_user!
     #Taking us to cart index[view] page
     redirect_to :action => :index
     
-end
+  end
 
+  def increase
+    
+    id = params[:id]
+    cart = session[:cart]
+    cart[id] = cart[id] + 1
+    redirect_to :action => :index
+    
+  end
 
 
 end
