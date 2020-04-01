@@ -14,6 +14,7 @@ get '/cart/clear', to: 'cart#clearCart'
   get '/cart/:id', to: 'cart#add'
   get '/cart/remove/:id' => 'cart#remove'
   get '/cart/decrease/:id' => 'cart#decrease'
+  get '/cart/increase/:id' => 'cart#increase'
 
   root :to => "main#home"
   resources :products

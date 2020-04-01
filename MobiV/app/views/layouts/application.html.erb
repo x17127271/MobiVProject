@@ -28,9 +28,12 @@
             <li class="nav-item">
               <%= link_to "Products", products_path, class: 'nav-link' %>
             </li>
+            
+            <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to "View Cart", "/cart", class: 'nav-link' %>
             </li>
+            <% end %>
 
             <li class="nav-item">
               <%= link_to "Contact", contact_path, class: 'nav-link' %>
