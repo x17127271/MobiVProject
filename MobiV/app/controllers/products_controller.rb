@@ -61,6 +61,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search
+    st = "%#{params[:q]}%"
+    @products = Product.where("title like ?", st)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -71,4 +76,7 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:title, :description, :price, :category, :image_url)
     end
+
+   
+ 
 end
