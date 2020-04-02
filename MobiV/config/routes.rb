@@ -1,14 +1,25 @@
 Rails.application.routes.draw do
   
 
+  get 'orderitems/index'
+  get 'orderitems/show'
+  get 'orderitems/new'
+  get 'orderitems/edit'
+  resources :orders do 
+    resources:orderitems
+  end
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'cart/index'
 
-  devise_for :users
+  devise_for :users do 
+    resources :orders 
+  end
   get '/home' => 'main#home'
   get '/contact' => 'main#contact'
   get '/about' => 'main#about'
-
+  get '/checkout' => 'cart#createOrder'
+  
 get '/cart/clear', to: 'cart#clearCart'
   get '/cart' => 'cart#index'
   get '/cart/:id', to: 'cart#add'
