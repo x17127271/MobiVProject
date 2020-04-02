@@ -87,7 +87,7 @@ before_action :authenticate_user!
     @orderitem = @order.orderitems.build(:item_id => item.id, :title => item.title, :description => item.description, :quantity => quantity, :price=> item.price)
     @orderitem.save
     end
-    @orders = Order.last 
+    @orders = Order.all 
     @orderitems = Orderitem.where(order_id: Order.last)
     session[:cart] = nil
    end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'orderitems/new'
   get 'orderitems/edit'
   resources :orders do 
-    resources:orderitems
+    resources :orderitems
   end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
