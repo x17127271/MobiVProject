@@ -1,0 +1,17 @@
+
+
+<table class="catalog">
+  <% @products.limit(2).order(:id).each do |product| %>
+        <div class="col">
+                        <div class="card text-center h-100" style="width: 18rem;">
+                            <%= link_to (image_tag product.image_url, :class => "card-img-top"), product %>  
+                                <div class="card-body">
+                                <h5 class="card-title"><%= product.title %></h5>
+                                <p class="card-text limit-text-home text-left"><%= product.description %></p>                                                               
+                                <%= link_to 'Show', product, class: 'btn btn-dark' %>
+                                <a class="btn btn-dark" href="/cart/<%= product.id %>">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>     
+    <% end %>
+</table>

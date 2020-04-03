@@ -50,19 +50,13 @@
             <li class="nav-item"><%= link_to 'Register', new_user_registration_path, class: 'nav-link' %></li>
             <li class="nav-item"><%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %></li>
             <% end %>
-            <li class="">
-              
-            </li>
-                     
           </ul>
+          <%=render 'layouts/search'%>
         </div>
     </nav>    
     <%# Body Content %>
     <div class="container">
-    <div class="row">
-      <div class="col">
-        <%=render 'layouts/search'%>
-      </div>
+    <div class="row">     
     </div>
       <%= yield %>
     </div>
