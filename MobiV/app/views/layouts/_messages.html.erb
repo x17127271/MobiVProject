@@ -1,0 +1,6 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert alert-success id="welcome-message" role="alert" alert-<%= key %>">
+    <a href="#" data-dismiss="alert" class="close">×</a>
+       Welcome <a href="users/edit"><%= current_user.email %></a>
+  </div>
+<% end %>
