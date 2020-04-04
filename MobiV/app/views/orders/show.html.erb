@@ -19,9 +19,9 @@
   </tr>
   
   <tr>
-    <td><%= link_to 'Edit', edit_order_path(@order), :class =>"button" %></td>
-    <td><%= link_to 'Back', orders_path, :class =>"button" %></td>
-        
+    <td><%= link_to 'Edit', edit_order_path(@order), :class =>"btn" %></td>
+    <td><%= link_to 'Back', orders_path, :class =>"btn" %></td>
+    <td><a href="/paid/<%= @order.id %>" class="btn">Pay Now</a></h2></td>
   </tr>
   </table>
 
