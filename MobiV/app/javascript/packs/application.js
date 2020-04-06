@@ -19,6 +19,3 @@ require('jquery')
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-$(document).ready(function(){
-    $( "#welcome-message" ).delay(1000).hide(1000);
-});
