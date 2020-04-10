@@ -22,9 +22,9 @@
       <% if user_signed_in? %> 
         <a href="/cart/<%= @product.id %>" class="btn btn-dark">Add To Cart</a>
       <% end %>
-      <%# if session[:login] == 1 %>
+      <% if session[:login] == 1 %>
         <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-dark mt-3' %>
-      <%# end %>
+      <% end %>
     </div>
   </div>
   <div class="row">

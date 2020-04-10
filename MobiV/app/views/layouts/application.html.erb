@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><%= yield(:title) %> | MobiV</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>  
+  <body class="d-flex flex-column h-100">  
     <%# Navbar %>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">MobiV</a>     
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="/">MobiV</a>     
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav  mr-auto">
             <li class="nav-item active">
               <%= link_to "Home", "/", class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Shop", shop_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">
               <%= link_to "About", about_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">
               <%= link_to "Products", products_path, class: 'nav-link' %>
-            </li>
-            
+            </li>            
             <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to "View Cart", "/cart", class: 'nav-link' %>
@@ -37,33 +37,35 @@
               <%= link_to "Orders", "/orders", class: 'nav-link' %>
             </li>
             <% end %>
-
             <li class="nav-item">
               <%= link_to "Contact", contact_path, class: 'nav-link' %>
             </li>
-            
             <% if user_signed_in? %>
-
+            <li class="nav-item">
+              <a href="/admin" class="nav-link">Admin Panel</a>
+            </li>
+            <% end %>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item"><%= render 'layouts/search'%></li>
+          </ul>
+          <ul class="navbar-nav">            
+            <% if user_signed_in? %>
             <li class="nav-item"><%= link_to 'Edit Profile', edit_user_registration_path, class: 'nav-link' %></li>
             <li class="nav-item"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: 'nav-link' %></li>
             <% else %>
             <li class="nav-item"><%= link_to 'Register', new_user_registration_path, class: 'nav-link' %></li>
             <li class="nav-item"><%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %></li>
-            <% end %>
-          </ul>
-          <%=render 'layouts/search'%>
+            <% end %>            
+          </ul>         
         </div>
     </nav>    
-    <%# Body Content %>
-    <div class="container">
-    <div class="row">     
-    </div>
-      <%= yield %>
-    </div>
+    <%# Body Content %>      
+      <%= yield %>    
     <%# Footer %>
-    <footer class="container py-5">
+    <footer class="mt-auto py-5">
       <div class="row">
-        <div class="col-12 col-md">
+        <div class="col-12 col-md text-center">
           <small class="d-block mb-3 text-muted">© 2020</small>
         </div>
         <div class="col-6 col-md">

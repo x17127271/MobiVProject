@@ -79,7 +79,8 @@ before_action :authenticate_user!
     # Step 2: Create a new order and associate it with the current user
     @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')
     @order.save
-   
+    
+
     # Step 3: For each item in the cart, create a new item on the order!!
     @cart = session[:cart] || {} # Get the content of the Cart
     @cart.each do | id, quantity |
