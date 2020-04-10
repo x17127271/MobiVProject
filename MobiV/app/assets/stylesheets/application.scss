@@ -16,6 +16,13 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+
+footer {
+   padding-left: 50px;
+   background-color: #f0f1f3;
+   color: #2c2c2c;
+}
+
 .border-accessories {
    border: 2px solid #8080804a;
    border-radius: 10px;
@@ -90,3 +97,97 @@
  .md-textarea {
     height: 200px;
  }
+
+ .grey-color-section {
+    background-color: #aeb1b8;
+    color: #fff;
+    font-size: 32px;
+ }
+ 
+ .home-section-box {
+    width: 100%;
+ }
+
+ .home-section-say-header {
+   padding: 20px;
+   margin-left: 10px;
+   margin-right: 10px;
+ }
+
+ .main-picture {
+    background-image: url(/assets/homemain.jpg);
+    background-size: cover;
+ }
+
+ .home-main-btn {
+    width: 100%;
+    padding-bottom: 30px;
+ }
+
+ .home-main-header {
+    color: #fff;
+    font-size: 65px;
+    padding: 20px;
+ }
+
+
+
+ @media screen and (min-width: 1024px) {
+   .home-section-height {
+      height: 400px;   
+    }
+   
+    .line-home-section {
+      line-height: 400px;
+    }
+   
+    .home-section-box {
+       width: 50%;
+    }
+
+    .home-section-say-header {
+       width: 100%;
+    }
+
+    .home-section-say-message {
+      width: 33%;
+      display:inline-block
+   }
+
+   footer {
+      padding-left: 0px;
+   }
+
+   .float-right {
+      float: right;
+   }
+  
+   
+   .float-left {
+     float: left;
+  }
+
+  .home-section-one h2 {
+   font-size: 2em;
+   font-weight: 700;
+   letter-spacing: 0.075em;
+  }
+
+  .home-section-one p {
+   font-size: 1.11765em
+  }
+
+  .home-section-two p {
+   padding-left: 418px;
+   padding-right: 162px;
+   font-size: 1.11765em
+  }
+
+  .home-section-two h2 {
+   padding-left: 418px;
+   font-size: 2em;
+   font-weight: 700;
+   letter-spacing: 0.075em;
+  }
+ }
+ 

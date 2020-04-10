@@ -1,0 +1,70 @@
+<% provide(:title, "Shop") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col align-self-center pt-md-5 px-md-5 text-center">
+                    <div class="my-3 p-3">
+                        <h2 class="display-5">Scooters</h2>
+                        <p class="lead">subheader</p>
+                    </div>                
+                </div>
+            </div>
+            <div class="row">
+                <% @products.each do |product| %>
+                    <div class="col">
+                        <div class="card text-center h-100" style="width: 18rem;">
+                            <%= link_to (image_tag product.image_url, :class => "card-img-top"), product %>  
+                                <div class="card-body">
+                                <h5 class="card-title"><%= product.title %></h5>
+                                <p class="card-text limit-text-home text-left"><%= product.description %></p>
+                                <%= link_to 'Show', product, class: 'btn btn-dark' %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col align-self-center pt-md-5 px-md-5 text-center">
+                    <div class="my-3 p-3">
+                        <h2 class="display-5">Accessories</h2>
+                        <p class="lead">subheader accessories</p>
+                    </div>                
+                </div>
+            </div>
+            <div class="row">
+                <% @accessories.each do |accessory| %>
+                    <div class="col">
+                        <div class="card text-center h-100" style="width: 18rem;">
+                            <%= link_to (image_tag accessory.image_url, :class => "card-img-top"), accessory %>  
+                                <div class="card-body">
+                                <h5 class="card-title"><%= accessory.title %></h5>
+                                <p class="card-text limit-text-home text-left"><%= accessory.description %></p>
+                                <%= link_to 'Show', accessory, class: 'btn btn-dark' %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+             <div class="row">
+                <div class="col align-self-center pt-md-5 px-md-5 text-center">
+                    <div class="my-3 p-3">
+                        <h2 class="display-5">Popular products</h2>                        
+                    </div>                
+                </div>
+            </div>
+            <div class="row">
+            <%=render 'layouts/popular'%>
+            </div>
+        </div>
+    </div>
+</div>

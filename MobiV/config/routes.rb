@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-
+  root :to => "main#home"
+  
   get 'orderitems/index'
   get 'orderitems/show'
   get 'orderitems/new'
@@ -12,6 +13,9 @@ Rails.application.routes.draw do
   end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  
+
   get 'cart/index'
 
   devise_for :users do 
@@ -19,10 +23,12 @@ Rails.application.routes.draw do
   end
 
   get '/home' => 'main#home'
+  get '/shop' => 'main#shop'
   get '/contact' => 'main#contact'
   get '/about' => 'main#about'
   get '/checkout' => 'cart#createOrder'
   get '/paid/:id' => 'main#paid'
+  
   
   get '/cart/clear', to: 'cart#clearCart'
   get '/cart' => 'cart#index'
@@ -31,7 +37,7 @@ Rails.application.routes.draw do
   get '/cart/decrease/:id' => 'cart#decrease'
   get '/cart/increase/:id' => 'cart#increase'
 
-  root :to => "main#home"
+  
   resources :products
 
   post '/search' => 'products#search'
