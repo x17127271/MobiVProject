@@ -2,5 +2,7 @@
   <div class="alert alert alert-success id="welcome-message" role="alert" alert-<%= key %>">
     <a href="#" data-dismiss="alert" class="close">×</a>
        Welcome <a href="users/edit"><%= current_user.email %></a>
+       <label>, your last login was on <b><%= current_user.last_login.strftime("%d-%m-%Y") %></b>.</label>
+       <label>Click on your last order <a href="orders/<%= @orderNumber %>"># <%= @orderNumber %> </a>to see the details.</label>
   </div>
 <% end %>
