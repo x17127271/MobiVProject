@@ -18,6 +18,7 @@
                 </tr>
             </thead>
             <% total = 0 %>
+            <% totalitems = 0 %>
             <% @cart.each do |id, quantity| %>
             <% item = Product.find_by_id(id) %>
 
@@ -35,6 +36,9 @@
             </tr>
 
             <% total += quantity * item.price %>
+            <% totalitems += quantity %>
+            <% session[:total_cart_price] = total %>
+            <% session[:total_items] = totalitems %>
             <% end %>
 
         </table>

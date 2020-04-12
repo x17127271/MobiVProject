@@ -5,7 +5,7 @@ before_action :authenticate_user!
   def add
     # get the Id of the product
     id = params[:id]
-    
+   
   # if the cart is already been created, use existing cart else create a blank cart
   if session[:cart] then
     cart = session[:cart]
@@ -19,7 +19,7 @@ before_action :authenticate_user!
   else
     cart[id]= 1
   end  
-
+  
     redirect_to :action => :index
 
   end
@@ -27,12 +27,15 @@ before_action :authenticate_user!
   def clearCart
     #sets session variable to nil and bring back to index
     session[:cart] = nil
+    session[:total_cart_price] = 0.00
+    session[:total_items] = 0
     redirect_to :action => :index
   end 
 
 
 
   def index
+    
     # passes a cart to display
     if session[:cart] then
       @cart = session[:cart]
@@ -46,7 +49,8 @@ before_action :authenticate_user!
     id = params[:id]
     cart = session[:cart]
     cart.delete id
-    
+    session[:total_cart_price] = 0.00
+    session[:total_items] = 0
     redirect_to :cart
   end
 
