@@ -1,5 +1,12 @@
 class MainController < ApplicationController
   def home
+
+    @order = Order.last
+    @orderNumber = @order.id
+    update_last_login
+   
+    
+   
   end
 
   def contact
@@ -28,7 +35,12 @@ class MainController < ApplicationController
     @order.update_attribute(:status , "Paid by User: #{current_user.email} with PayPal")
     #"Paid by User:#{current_user.id} #{current_user.name} #{current_user.surname}")
     
-  end
+  end  
 
+  def update_last_login
+    if (current_user.present?) && (current_user.last_login != Date.today)
+      current_user.update_column(:last_login, Date.today)
+    end
+  end
 
 end
