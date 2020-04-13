@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/shop' => 'main#shop'
   get '/contact' => 'main#contact'
   get '/about' => 'main#about'
+  get '/thankyou' => 'main#thankyou'
   get '/checkout' => 'cart#createOrder'
   get '/paid/:id' => 'main#paid'
   
