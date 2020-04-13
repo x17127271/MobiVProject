@@ -21,7 +21,6 @@
             <% totalitems = 0 %>
             <% @cart.each do |id, quantity| %>
             <% item = Product.find_by_id(id) %>
-
             <tr>
                 <td>
                     <div class="image"></div>
@@ -34,13 +33,11 @@
                     <a href="/cart/increase/<%= item.id %>" class="btn btn-dark">+</a></td>
                 <td><a href="/cart/remove/<%= item.id %>" class="btn btn-dark">Remove</a></td>
             </tr>
-
             <% total += quantity * item.price %>
             <% totalitems += quantity %>
             <% session[:total_cart_price] = total %>
             <% session[:total_items] = totalitems %>
             <% end %>
-
         </table>
         <div class="mt-3">
             Grand Total: <%= number_to_currency(total, :unit => "€") %>

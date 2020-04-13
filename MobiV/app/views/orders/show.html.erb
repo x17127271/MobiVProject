@@ -1,7 +1,6 @@
 <% provide(:title, "Show Order") %>
 
 <p id="notice"><%= notice %></p>
-
 <div class="container">
   <% if @order.user.email == @user.email %>
   <div class="row">
@@ -62,7 +61,7 @@
               <%= orderitem.quantity %>
             </td>
             <td>
-              <%= orderitem.price %>
+              <%= number_to_currency(orderitem.price, :unit => "€")  %>
             </td>
           </tr>
         <% end %> 

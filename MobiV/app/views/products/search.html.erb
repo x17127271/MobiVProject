@@ -1,40 +1,35 @@
 
-<div class="container">
-<h2>You Searched Our Product Catalog For <%= @search_term %></h2>
-
-<% if @products.length == 0  %>
-<br />
-<h2>No products were found to match your search</h2>
-<% end %>
-
-
-<table class="catalog">
-  <% @products.each do |product| %>
-      <tr>
-        <td>
-          <div class="image">
-            <%= link_to (image_tag product.image_url, :style => "height:100px"), product %>
-          </div>
-          <div class="title">
-            <%= link_to product.title, product %>
-          </div>
-          <div class="description">
-            <%= product.description %>
-          </div>  
-          <div class="price">
-             <%= number_to_currency(product.price, :unit => "€") %>
-          </div>
-          <div class="links">
-            <% if user_signed_in? %>
-              <%= link_to 'Edit', edit_product_path(product) %>
-              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <%else%>
-            
-              <a href="/cart/<%= product.id %>">Add to Cart</a>
-            <%end%>  
-        </div>
-        </td>
-      </tr>
-    <% end %>
-</table>
+<div class="container h-100 mt-3">
+  <div class="row h-100 justify-content-center align-items-center">   
+    <div class="col-10 col-md-8 col-lg-8 mt-3"> 
+      <h2>You Searched Our Product Catalog For <%= @search_term %></h2>
+      <% if @products.length == 0  %>
+      <br />
+      <h2>No products were found to match your search</h2>
+      <% end %>
+      <table class="catalog mt-3">
+        <% @products.each do |product| %>
+            <tr>
+              <td>
+                <div class="image mt-3">
+                  <%= link_to (image_tag product.image_url, :style => "height:100px"), product %>
+                </div>
+                <div class="title mt-3">
+                  <%= link_to product.title, product %>
+                </div>
+                <div class="description mt-3">
+                  <%= product.description %>
+                </div>  
+                <div class="price mt-3">
+                  <%= number_to_currency(product.price, :unit => "€") %>
+                </div>
+                <div class="links mt-3">
+                  <%= link_to 'Show', product, class: 'btn btn-dark' %>                   
+                </div>
+              </td>
+            </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
 </div>
