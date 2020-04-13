@@ -2,8 +2,10 @@ class MainController < ApplicationController
   def home
 
     @order = Order.last
-    @orderNumber = @order.id
-    update_last_login
+    if(@order != nil)
+      @orderNumber = @order.id
+    end
+      update_last_login
    
     
    
