@@ -9,7 +9,9 @@
                     <h5 class="card-title"><%= product.title %></h5>
                     <p class="card-text limit-text-home text-left"><%= product.description %></p>                                                               
                     <%= link_to 'Show', product, class: 'btn btn-dark' %>
-                    <a class="btn btn-dark" href="/cart/<%= product.id %>">Add to Cart</a>
+                    <% if user_signed_in?%>
+                        <a class="btn btn-dark" href="/cart/<%= product.id %>">Add to Cart</a>
+                    <% end %>
                 </div>
             </div>
         </div>     
