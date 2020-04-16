@@ -31,7 +31,9 @@
             </td>
             <td>
               <%= link_to 'Show', order, class: 'btn btn-outline-primary btn-sm' %>
-              <%= link_to 'Edit', edit_order_path(order), class: 'btn btn-outline-primary btn-sm' %>        
+              <% if user_signed_in? && current_user.admin == true %> 
+                <%= link_to 'Edit', edit_order_path(order), class: 'btn btn-outline-primary btn-sm' %>
+              <% end %>
               <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
             </td>        
           </tr>

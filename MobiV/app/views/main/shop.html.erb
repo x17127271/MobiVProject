@@ -6,8 +6,7 @@
             <div class="row">
                 <div class="col align-self-center pt-md-5 px-md-5 text-center">
                     <div class="my-3 p-3">
-                        <h2 class="display-5" id="scooters">Scooters</h2>
-                        <p class="lead">subheader</p>
+                        <h2 class="display-5" id="scooters">Scooters</h2>                        
                     </div>                
                 </div>
             </div>
@@ -20,6 +19,9 @@
                                 <h5 class="card-title"><%= product.title %></h5>
                                 <p class="card-text limit-text-home text-left"><%= product.description %></p>
                                 <%= link_to 'Show', product, class: 'btn btn-dark' %>
+                                 <% if user_signed_in?%>
+                                    <a class="btn btn-dark" href="/cart/<%= product.id %>">Add to Cart</a>
+                                <% end %>
                             </div>
                         </div>
                     </div>
@@ -32,8 +34,7 @@
             <div class="row">
                 <div class="col align-self-center pt-md-5 px-md-5 text-center">
                     <div class="my-3 p-3">
-                        <h2 class="display-5" id="accessories">Accessories</h2>
-                        <p class="lead">subheader accessories</p>
+                        <h2 class="display-5" id="accessories">Accessories</h2>                       
                     </div>                
                 </div>
             </div>
@@ -46,6 +47,9 @@
                                 <h5 class="card-title"><%= accessory.title %></h5>
                                 <p class="card-text limit-text-home text-left"><%= accessory.description %></p>
                                 <%= link_to 'Show', accessory, class: 'btn btn-dark' %>
+                                <% if user_signed_in?%>
+                                    <a class="btn btn-dark" href="/cart/<%= accessory.id %>">Add to Cart</a>
+                                <% end %>
                             </div>
                         </div>
                     </div>
@@ -53,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
         <div class="col">
              <div class="row">
                 <div class="col align-self-center pt-md-5 px-md-5 text-center">
