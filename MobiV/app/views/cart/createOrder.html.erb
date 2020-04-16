@@ -1,10 +1,21 @@
 <% provide(:title, "Checkout") %>
 
-<div class="container">
-  <div id="itemsContainer">
-    <h1>Thank You<br>You have just placed an order #<%= @order.id %></h1>
-  </div>  
-  <table id="customers">
+<div class="container mt-3">
+  <div class="row justify-content-center align-items-center">   
+    <div class="col-10 col-md-8 col-lg-6 mt-3">
+      <h1>Thank You<br>You have just placed an order #<%= @order.id %></h1>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center">   
+    <div class="col-10 col-md-8 col-lg-6 mt-3">      
+    <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>                   
+                </tr>
+            </thead>
     <% @total = 0 %>
     <% @orderitems.each do |id,quantity| %>
       <tr>
@@ -17,17 +28,19 @@
        <% @total += timx %>
        <% session[:total_cart_price] = @total %>
       </tr>
-    <% end %>   
-      <tr>        
-        <td>Order Total: &euro; <%= @total %></td>       
+    <% end %>
+    </table>
+         <div class="mt-3">
+        <label><b>Order Total:</b> &euro; <%= @total %></label>     
+        </div>
         <% shipping = 30 %>
         <% @overall = shipping + @total%>
-      <tr>
-        <td>Shipping &euro;30</td>
-        <td>You Pay &euro; <%= @overall %></td>
-      </tr>       
-      </tr>
-  </table>
+        <div class="mb-3"> 
+        <label><b>Shipping:</b> &euro;30</label>
+        </div>        
+        <div class="mt-3 mb-3">
+        <label><b>You Pay:</b> &euro; <%= @overall %></label>
+        </div>
   <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
     <input type="hidden" name="cmd" value="_xclick">
     <input type="hidden" name="business" value="sb-t47tgt1415375@business.example.com">
@@ -37,4 +50,6 @@
     <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
     <input type="hidden" name="return" value="https://agile-scrubland-91420.herokuapp.com/thankyou"> 
   </form>
+</div>
+</div>
 </div>
