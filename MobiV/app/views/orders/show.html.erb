@@ -1,12 +1,15 @@
 <% provide(:title, "Show Order") %>
 
-<p id="notice"><%= notice %></p>
+
 <div class="container">
+  <div class="row mt-3 mb-3">
+    <p id="notice"><%= notice %></p>
+  </div>
   <% if @order.user.email == @user.email %>
-  <div class="row">
+  <div class="row mt-3">
     <h1>Order Details</h1>
   </div>
-  <div class="row">
+  <div class="row mt-3">
     <table class="table table-hover table-sm">
       <thead>
         <tr>
